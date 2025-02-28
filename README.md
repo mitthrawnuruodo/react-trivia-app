@@ -32,9 +32,14 @@ netlify login
 netlify deploy --dir=dist
 netlify deploy --prod --dir=dist
 ```
+
+[Deployed site on Netlify](https://trivia-app-2025-02-28.netlify.app/)
+
 **Vercel CLI:**
 ```
 npm install -g vercel
 vercel login
 vercel --prod
 ```
+
+[Deployed site on Vercel](https://react-trivia-app-pi.vercel.app/)
