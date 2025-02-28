@@ -1,12 +1,40 @@
-# React + Vite
+# Trivia SPA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a small React single‐page application built with Vite, demonstrating routing (via React Router v7+), data fetching with a custom hook, and responsive design.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Home Page**: Displays a hero section with a link to the trivia game and a random “useless fact.”
+* **Trivia Page**: Fetches multiple‐choice questions from an external API and tracks the user’s score.
+* **Deploy Page**: Basic information on deploying to Netlify and Vercel.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Install dependencies:
+```sh
+npm install
+```
+Run in development mode:
+```
+npm run dev
+```
+Build for production:
+```
+npm run build
+```
+
+## Deployment
+
+**Netlify CLI:**
+```
+npm install -g netlify-cli
+netlify login
+netlify deploy --dir=dist
+netlify deploy --prod --dir=dist
+```
+**Vercel CLI:**
+```
+npm install -g vercel
+vercel login
+vercel --prod
+```
