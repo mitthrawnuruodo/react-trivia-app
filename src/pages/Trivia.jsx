@@ -14,8 +14,14 @@ const Trivia = () => {
   // Define the number of trivia questions to fetch.
   const numberOfQuestions = 5;
 
+  // We track a "fetchIndex" to trigger new fetches
+  const [fetchIndex, setFetchIndex] = useState(0);
+
   // useAPI hook fetches trivia questions from the API.
-  const { data, loading, error } = useAPI(`https://opentdb.com/api.php?amount=${numberOfQuestions}`);
+  // Append &fetchIndex to the query so that it changes when fetchIndex changes
+  const { data, loading, error } = useAPI(
+    `https://opentdb.com/api.php?amount=${numberOfQuestions}&fetchIndex=${fetchIndex}`
+  );
 
   // Track the index of the current question.
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -60,14 +66,12 @@ const Trivia = () => {
     setCurrentQuestion((prev) => prev + 1);
   };
 
-  // Function to reset the game.
-  // Here, the page is reloaded, but state could be reset manually as an alternative.
+  // Function to reset the game. State is reset manually.
   const resetGame = () => {
-    window.location.reload();
-    // Alternatively, reset the state variables:
-    // setCurrentQuestion(0);
-    // setScore(0);
-    // setSelected(null);
+    setCurrentQuestion(0);
+    setScore(0);
+    setSelected(null);
+    setFetchIndex((prev) => prev + 1); 
   };
 
   // Display a loading message while the API call is in progress.
